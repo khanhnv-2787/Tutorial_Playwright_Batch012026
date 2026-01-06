@@ -1,0 +1,62 @@
+# =====================
+# Node.js
+# =====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =====================
+# TypeScript
+# =====================
+*.tsbuildinfo
+dist/
+build/
+out/
+
+# =====================
+# Playwright
+# =====================
+playwright-report/
+playwright/.cache/
+test-results/
+blob-report/
+.trace/
+
+# =====================
+# Environment variables
+# =====================
+.env
+.env.*
+!.env.example
+
+# =====================
+# OS / Editor
+# =====================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# WebStorm / IntelliJ
+.idea/
+
+# =====================
+# Logs
+# =====================
+logs/
+*.log
+
+# =====================
+# Coverage
+# =====================
+coverage/
+
+# =====================
+# Misc
+# =====================
+*.tgz
+*.tmp
