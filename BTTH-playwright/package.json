@@ -1,0 +1,22 @@
+{
+	"name": "BTTH-playwright",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "pnpm exec playwright test",
+		"test:ui": "pnpm exec playwright test --ui",
+		"test:headed": "pnpm exec playwright test --headed",
+		"test:debug": "pnpm exec playwright test --debug",
+		"test:report": "pnpm exec playwright show-report",
+		"playwright:install": "pnpm exec playwright install"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.18.0",
+	"devDependencies": {
+		"@playwright/test": "^1.57.0",
+		"@types/node": "^25.0.6"
+	}
+}
