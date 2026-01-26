@@ -3,13 +3,25 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",    
+    "test:list": "playwright test --list",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:reporter": "playwright test --reporter=html,json,junit",
+    "test:coverage": "playwright test --reporter=html --reporter=json",
+    "test:screenshot": "playwright test --screenshot=on",
+    "test:video": "playwright test --video=on",
+    "test:trace-on": "playwright test --trace=on"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.18.0",
   "devDependencies": {
-    "@playwright/test": "^1.57.0",
+    "@playwright/test": "^1.58.0",
     "@types/node": "^25.0.10"
   }
 }

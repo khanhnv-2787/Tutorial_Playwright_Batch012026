@@ -1,0 +1,71 @@
+{
+  "register": {
+    "genderMaleRadio": {
+      "loc": "#gender-male"
+    },
+    "genderFemaleRadio": {
+      "loc": "#gender-female"
+    },
+    "firstNameInput": {
+      "loc": "#FirstName"
+    },
+    "lastNameInput": {
+      "loc": "#LastName"
+    },
+    "emailInput": {
+      "loc": "#Email"
+    },
+    "passwordInput": {
+      "loc": "#Password"
+    },
+    "confirmPasswordInput": {
+      "loc": "#ConfirmPassword"
+    },
+    "registerButton": {
+      "loc": "#register-button"
+    },
+    "validationSummary": {
+      "loc": ".validation-summary-errors"
+    },
+    "fieldValidationError": {
+      "loc": ".field-validation-error"
+    },
+    "successMessage": {
+      "loc": ".result"
+    }
+  },
+  "login": {
+    "emailInput": {
+      "loc": "#Email"
+    },
+    "passwordInput": {
+      "loc": "#Password"
+    },
+    "rememberMeCheckbox": {
+      "loc": "#RememberMe"
+    },
+    "loginButton": {
+      "loc": ".login-button"
+    },
+    "validationSummary": {
+      "loc": ".validation-summary-errors"
+    },
+    "forgotPasswordLink": {
+      "loc": "a[href*='passwordrecovery']"
+    }
+  },
+  "common": {
+    "registerLink": {
+      "text": "Register"
+    },
+    "loginLink": {
+      "text": "Log in"
+    },
+    "logoutLink": {
+      "text": "Log out"
+    },
+    "userEmail": {
+      "loc": ".account"
+    }
+  }
+}

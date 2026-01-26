@@ -1,0 +1,216 @@
+#REF!,,,Register & Login Test Cases,,,"No: BM-2-901-13
+Version: 2.1
+Issue Date: 27/01/2026",,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+"SUN ASTERISK VIETNAM CO., LTD",,,,,,ISO/IEC 27001:2013&ISO 9001:2015,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,Module Name,Register & Login,Total TCs,Passed,Failed,Pending,N/A,Remain,,,,,,,,,
+,Create date,27/01/2026,35,0,0,35,0,35,,,,,,,,,
+,Tester,,,0%,0%,100%,0%,100%,,,,,,,,,
+,Review status,Not yet,Review by,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+Test environment:,https://demowebshop.tricentis.com/,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+Section,TC_ID,Page_Name,Category,Sub_Category,Sub_Sub_Category,Test_Objective,Precondition,Test_Data,Steps,Expected_Result,Specs,Priority,Testcase_Type,Test_Result,Executed_Date,Tester,Note
+REGISTER - ACCESSING,,,,,,,,,,,,,,,,,
+,TC_REGISTER_ACC_001,Register,Check access permission,Direct URL access,Unauthenticated user,Verify unauthenticated user can access register page via direct URL,"User is not logged in, browser is open",URL: https://demowebshop.tricentis.com/register,"1. Open browser
+2. Navigate to https://demowebshop.tricentis.com/register
+3. Verify page loads",Register page displayed successfully with registration form,Yes,High,Access control and security,,,,
+,TC_REGISTER_ACC_002,Register,Check access permission,Direct URL access,Authenticated user,Verify authenticated user accessing register page is redirected or handled appropriately,User is already logged in,URL: https://demowebshop.tricentis.com/register,"1. Login with valid credentials
+2. Navigate to https://demowebshop.tricentis.com/register
+3. Observe behavior","User redirected to customer account page or register page displayed with message, no duplicate registration allowed",Yes,High,Access control and security,,,,
+,TC_REGISTER_ACC_003,Register,Check access permission,Navigation from homepage,Top menu link,Verify user can access register page from top menu,Browser open on homepage,URL: https://demowebshop.tricentis.com,"1. Navigate to homepage
+2. Click on 'Register' link in top menu
+3. Verify redirect",Register page displayed successfully,Yes,High,Navigation,,,,
+,,,,,,,,,,,,,,,,,
+REGISTER - GUI,,,,,,,,,,,,,,,,,
+,TC_REGISTER_GUI_001,Register,UI Elements,Form fields,Gender radio buttons,Verify gender radio buttons are displayed and functional,User on register page,N/A,"1. Navigate to register page
+2. Locate gender radio buttons (Male/Female)
+3. Click each option","Both radio buttons are visible, clickable, and mutually exclusive",Yes,Medium,UI/UX,,,,
+,TC_REGISTER_GUI_002,Register,UI Elements,Form fields,Input fields,Verify all required input fields are displayed,User on register page,N/A,"1. Navigate to register page
+2. Verify presence of: First name, Last name, Email, Password, Confirm password fields","All input fields are visible with appropriate labels",Yes,High,UI/UX,,,,
+,TC_REGISTER_GUI_003,Register,UI Elements,Form fields,Password field masking,Verify password fields mask input,User on register page,Password: Test@123,"1. Navigate to register page
+2. Enter password in Password field
+3. Verify characters are masked","Password characters displayed as dots/asterisks",Yes,Medium,UI/UX,,,,
+,TC_REGISTER_GUI_004,Register,UI Elements,Buttons,Register button,Verify Register button is displayed and clickable,User on register page,N/A,"1. Navigate to register page
+2. Locate Register button
+3. Verify styling and enabled state","Register button is visible, properly styled, and enabled",Yes,High,UI/UX,,,,
+,TC_REGISTER_GUI_005,Register,UI Elements,Layout,Responsive design,Verify page layout is responsive,User on register page,N/A,"1. Navigate to register page
+2. Resize browser window to different sizes
+3. Test on mobile viewport","Page layout adjusts appropriately, all elements remain accessible",Yes,Medium,UI/UX,,,,
+,,,,,,,,,,,,,,,,,
+REGISTER - FUNCTIONAL,,,,,,,,,,,,,,,,,
+,TC_REGISTER_FUNC_001,Register,Valid registration,Complete form,All required fields,Verify successful registration with all valid data,User on register page not logged in,"Gender: Male
+FirstName: John
+LastName: Doe
+Email: john.doe.{timestamp}@test.com
+Password: Test@123456
+ConfirmPassword: Test@123456","1. Select gender: Male
+2. Enter First name: John
+3. Enter Last name: Doe
+4. Enter Email: john.doe.{timestamp}@test.com
+5. Enter Password: Test@123456
+6. Enter Confirm password: Test@123456
+7. Click Register button","Registration successful, success message displayed, user redirected to confirmation/account page",Yes,Critical,Positive testing,,,,
+,TC_REGISTER_FUNC_002,Register,Email validation,Invalid format,Missing @ symbol,Verify error message for email without @ symbol,User on register page,"Email: testuser.com
+Other fields: valid data","1. Fill all fields with valid data
+2. Enter email without @: testuser.com
+3. Click Register button","Error message: 'Wrong email' or similar validation error",Yes,High,Negative testing,,,,
+,TC_REGISTER_FUNC_003,Register,Email validation,Invalid format,Invalid domain,Verify error message for email with invalid domain,User on register page,"Email: test@
+Other fields: valid data","1. Fill all fields with valid data
+2. Enter email: test@
+3. Click Register button","Error message: 'Wrong email' or validation error displayed",Yes,High,Negative testing,,,,
+,TC_REGISTER_FUNC_004,Register,Email validation,Duplicate email,Existing account,Verify error when registering with already registered email,User on register page,"Email: existing@test.com (already registered)
+Other fields: valid data","1. Fill all fields with valid data
+2. Enter email that already exists in system
+3. Click Register button","Error message: 'The specified email already exists' or similar",Yes,Critical,Negative testing,,,,
+,TC_REGISTER_FUNC_005,Register,Required fields,Empty fields,All fields empty,Verify validation when all fields are empty,User on register page,All fields: empty,"1. Navigate to register page
+2. Click Register button without filling any field","Validation errors displayed for all required fields",Yes,High,Negative testing,,,,
+,TC_REGISTER_FUNC_006,Register,Required fields,Empty fields,First name empty,Verify validation when first name is empty,User on register page,"FirstName: empty
+Other fields: valid","1. Fill all fields except First name
+2. Click Register button","Error message: 'First name is required'",Yes,High,Negative testing,,,,
+,TC_REGISTER_FUNC_007,Register,Required fields,Empty fields,Last name empty,Verify validation when last name is empty,User on register page,"LastName: empty
+Other fields: valid","1. Fill all fields except Last name
+2. Click Register button","Error message: 'Last name is required'",Yes,High,Negative testing,,,,
+,TC_REGISTER_FUNC_008,Register,Required fields,Empty fields,Email empty,Verify validation when email is empty,User on register page,"Email: empty
+Other fields: valid","1. Fill all fields except Email
+2. Click Register button","Error message: 'Email is required'",Yes,Critical,Negative testing,,,,
+,TC_REGISTER_FUNC_009,Register,Required fields,Empty fields,Password empty,Verify validation when password is empty,User on register page,"Password: empty
+Other fields: valid","1. Fill all fields except Password
+2. Click Register button","Error message: 'Password is required'",Yes,Critical,Negative testing,,,,
+,TC_REGISTER_FUNC_010,Register,Password validation,Password mismatch,Confirm password different,Verify error when passwords don't match,User on register page,"Password: Test@123456
+ConfirmPassword: Test@654321
+Other fields: valid","1. Fill all required fields
+2. Enter Password: Test@123456
+3. Enter Confirm password: Test@654321
+4. Click Register button","Error message: 'The password and confirmation password do not match'",Yes,Critical,Negative testing,,,,
+,TC_REGISTER_FUNC_011,Register,Password validation,Password length,Too short,Verify error when password is too short,User on register page,"Password: 12345
+ConfirmPassword: 12345
+Other fields: valid","1. Fill all required fields
+2. Enter short password: 12345
+3. Click Register button","Error message about minimum password length requirement (6 characters)",Yes,High,Negative testing,,,,
+,TC_REGISTER_FUNC_012,Register,Input validation,Special characters,Name fields,Verify handling of special characters in name fields,User on register page,"FirstName: John<script>
+LastName: Doe'OR'1'='1
+Other fields: valid","1. Enter special characters/script in First name and Last name
+2. Fill other fields with valid data
+3. Click Register button","Either sanitized and accepted or validation error displayed",Yes,Medium,Security testing,,,,
+,,,,,,,,,,,,,,,,,
+LOGIN - ACCESSING,,,,,,,,,,,,,,,,,
+,TC_LOGIN_ACC_001,Login,Check access permission,Direct URL access,Unauthenticated user,Verify unauthenticated user can access login page via direct URL,"User is not logged in, browser is open",URL: https://demowebshop.tricentis.com/login,"1. Open browser
+2. Navigate to https://demowebshop.tricentis.com/login
+3. Verify page loads",Login page displayed successfully with login form,Yes,High,Access control and security,,,,
+,TC_LOGIN_ACC_002,Login,Check access permission,Direct URL access,Authenticated user,Verify authenticated user accessing login page is redirected,User is already logged in,URL: https://demowebshop.tricentis.com/login,"1. Login with valid credentials
+2. Navigate to https://demowebshop.tricentis.com/login
+3. Observe behavior","User redirected to account dashboard or homepage, login page not accessible when already logged in",Yes,High,Access control and security,,,,
+,TC_LOGIN_ACC_003,Login,Check access permission,Navigation from homepage,Top menu link,Verify user can access login page from top menu,Browser open on homepage,URL: https://demowebshop.tricentis.com,"1. Navigate to homepage
+2. Click on 'Log in' link in top menu
+3. Verify redirect",Login page displayed successfully,Yes,High,Navigation,,,,
+,,,,,,,,,,,,,,,,,
+LOGIN - GUI,,,,,,,,,,,,,,,,,
+,TC_LOGIN_GUI_001,Login,UI Elements,Form fields,Input fields,Verify email and password fields are displayed,User on login page,N/A,"1. Navigate to login page
+2. Verify Email field is present
+3. Verify Password field is present","Both Email and Password fields are visible with appropriate labels",Yes,High,UI/UX,,,,
+,TC_LOGIN_GUI_002,Login,UI Elements,Form fields,Password masking,Verify password field masks input,User on login page,Password: Test@123,"1. Navigate to login page
+2. Enter password in Password field
+3. Verify characters are masked","Password characters displayed as dots/asterisks",Yes,Medium,UI/UX,,,,
+,TC_LOGIN_GUI_003,Login,UI Elements,Buttons,Log in button,Verify Log in button is displayed and clickable,User on login page,N/A,"1. Navigate to login page
+2. Locate Log in button
+3. Verify styling and enabled state","Log in button is visible, properly styled, and enabled",Yes,High,UI/UX,,,,
+,TC_LOGIN_GUI_004,Login,UI Elements,Links,Remember me checkbox,Verify Remember me checkbox is present and functional,User on login page,N/A,"1. Navigate to login page
+2. Locate 'Remember me' checkbox
+3. Click to check/uncheck","Remember me checkbox is visible and toggles between checked/unchecked states",Yes,Low,UI/UX,,,,
+,TC_LOGIN_GUI_005,Login,UI Elements,Links,Forgot password link,Verify Forgot password link is present,User on login page,N/A,"1. Navigate to login page
+2. Locate 'Forgot password' link
+3. Verify it's clickable","Forgot password link is visible and clickable",Yes,Medium,UI/UX,,,,
+,,,,,,,,,,,,,,,,,
+LOGIN - FUNCTIONAL,,,,,,,,,,,,,,,,,
+,TC_LOGIN_FUNC_001,Login,Valid login,Registered user,Correct credentials,Verify successful login with valid credentials,"User has registered account, not logged in","Email: validuser@test.com
+Password: Test@123456","1. Navigate to login page
+2. Enter valid email
+3. Enter valid password
+4. Click Log in button","User logged in successfully, redirected to homepage/dashboard, user email displayed in header",Yes,Critical,Positive testing,,,,
+,TC_LOGIN_FUNC_002,Login,Invalid login,Wrong password,Incorrect password,Verify error message when password is incorrect,User on login page,"Email: validuser@test.com
+Password: WrongPassword123","1. Navigate to login page
+2. Enter valid email
+3. Enter incorrect password
+4. Click Log in button","Error message: 'Login was unsuccessful' or similar, user remains on login page",Yes,Critical,Negative testing,,,,
+,TC_LOGIN_FUNC_003,Login,Invalid login,Wrong email,Non-existent email,Verify error message when email doesn't exist,User on login page,"Email: nonexistent@test.com
+Password: Test@123456","1. Navigate to login page
+2. Enter non-existent email
+3. Enter any password
+4. Click Log in button","Error message: 'Login was unsuccessful' or 'No customer account found', user remains on login page",Yes,Critical,Negative testing,,,,
+,TC_LOGIN_FUNC_004,Login,Invalid login,Empty fields,Both fields empty,Verify validation when both fields are empty,User on login page,"Email: empty
+Password: empty","1. Navigate to login page
+2. Leave both fields empty
+3. Click Log in button","Validation error displayed, user cannot login",Yes,High,Negative testing,,,,
+,TC_LOGIN_FUNC_005,Login,Invalid login,Empty fields,Email empty,Verify validation when email is empty,User on login page,"Email: empty
+Password: Test@123456","1. Navigate to login page
+2. Leave email empty
+3. Enter password
+4. Click Log in button","Error message: 'Please enter your email' or validation error",Yes,High,Negative testing,,,,
+,TC_LOGIN_FUNC_006,Login,Invalid login,Empty fields,Password empty,Verify validation when password is empty,User on login page,"Email: validuser@test.com
+Password: empty","1. Navigate to login page
+2. Enter email
+3. Leave password empty
+4. Click Log in button","Error message: 'Please enter your password' or validation error",Yes,High,Negative testing,,,,
+,TC_LOGIN_FUNC_007,Login,Email validation,Invalid format,Missing @ symbol,Verify error for invalid email format,User on login page,"Email: testuser.com
+Password: Test@123456","1. Navigate to login page
+2. Enter email without @: testuser.com
+3. Enter password
+4. Click Log in button","Browser validation error or error message about invalid email format",Yes,High,Negative testing,,,,
+,TC_LOGIN_FUNC_008,Login,Email validation,Invalid format,Special characters,Verify handling of special characters in email,User on login page,"Email: test@<script>.com
+Password: Test@123456","1. Navigate to login page
+2. Enter email with special chars
+3. Enter password
+4. Click Log in button","Validation error or sanitized input, login unsuccessful",Yes,Medium,Security testing,,,,
+,TC_LOGIN_FUNC_009,Login,Remember me,Functionality,Checked,Verify remember me functionality when checked,"User on login page, has valid account","Email: validuser@test.com
+Password: Test@123456
+Remember me: checked","1. Navigate to login page
+2. Enter valid credentials
+3. Check 'Remember me' checkbox
+4. Click Log in
+5. Close browser
+6. Reopen browser and navigate to site","User session persisted, user still logged in after browser restart",Yes,Medium,Functional testing,,,,
+,TC_LOGIN_FUNC_010,Login,Remember me,Functionality,Unchecked,Verify remember me functionality when unchecked,"User on login page, has valid account","Email: validuser@test.com
+Password: Test@123456
+Remember me: unchecked","1. Navigate to login page
+2. Enter valid credentials
+3. Leave 'Remember me' unchecked
+4. Click Log in
+5. Close browser
+6. Reopen browser and navigate to site","User session not persisted, user logged out after browser restart",Yes,Medium,Functional testing,,,,
+,TC_LOGIN_FUNC_011,Login,Security,SQL Injection,Email field,Verify protection against SQL injection in email field,User on login page,"Email: ' OR '1'='1
+Password: anything","1. Navigate to login page
+2. Enter SQL injection pattern in email field
+3. Enter any password
+4. Click Log in button","Login unsuccessful, no SQL injection vulnerability, appropriate error message",Yes,Critical,Security testing,,,,
+,TC_LOGIN_FUNC_012,Login,Security,XSS Attack,Email field,Verify protection against XSS in email field,User on login page,"Email: <script>alert('XSS')</script>@test.com
+Password: Test@123456","1. Navigate to login page
+2. Enter XSS script in email field
+3. Enter password
+4. Click Log in button","No script execution, input sanitized or rejected, login unsuccessful",Yes,Critical,Security testing,,,,
+,TC_LOGIN_FUNC_013,Login,Logout,Functionality,After successful login,Verify user can logout after logging in,"User logged in successfully",N/A,"1. Login with valid credentials
+2. Locate Log out link in header
+3. Click Log out","User logged out successfully, redirected to homepage, login link visible again",Yes,High,Functional testing,,,,
+,TC_LOGIN_FUNC_014,Login,Session management,Timeout,Session expiry,Verify session timeout after inactivity,User logged in,Wait time: as per session timeout setting,"1. Login successfully
+2. Remain inactive for session timeout period
+3. Try to perform an action","Session expired, user logged out or prompted to login again",Yes,Medium,Functional testing,,,,
+,,,,,,,,,,,,,,,,,
+REGISTER & LOGIN - INTEGRATION,,,,,,,,,,,,,,,,,
+,TC_INTEGRATION_001,Register & Login,Registration flow,End to end,Register then login,Verify user can register and immediately login with new account,User not registered or logged in,"Gender: Female
+FirstName: Jane
+LastName: Smith
+Email: jane.smith.{timestamp}@test.com
+Password: Secure@789","1. Navigate to register page
+2. Complete registration with new unique email
+3. Note success message
+4. Navigate to login page
+5. Login with newly registered credentials","Registration successful, then login successful with same credentials, user authenticated and redirected to account page",Yes,Critical,Integration testing,,,,
+,TC_INTEGRATION_002,Register & Login,Navigation,Between pages,Register to Login,Verify navigation from register page to login page,User on register page,N/A,"1. Navigate to register page
+2. Locate link/button to login page
+3. Click on it","User navigated to login page successfully",Yes,Medium,Navigation,,,,
+,TC_INTEGRATION_003,Register & Login,Navigation,Between pages,Login to Register,Verify navigation from login page to register page,User on login page,N/A,"1. Navigate to login page
+2. Locate link/button to register page (if exists)
+3. Click on it","User navigated to register page successfully",Yes,Medium,Navigation,,,,

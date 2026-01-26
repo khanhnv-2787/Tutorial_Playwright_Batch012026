@@ -1,0 +1,51 @@
+{
+  "register": {
+    "validUser": {
+      "gender": "male",
+      "firstName": "John",
+      "lastName": "Doe",
+      "password": "Test@123456",
+      "confirmPassword": "Test@123456"
+    },
+    "invalidEmails": {
+      "missingAt": "testuser.com",
+      "missingDomain": "test@",
+      "withScript": "<script>alert('XSS')</script>@test.com"
+    },
+    "invalidPasswords": {
+      "tooShort": "12345",
+      "mismatch": "Test@654321"
+    },
+    "specialCharacters": {
+      "firstName": "John<script>",
+      "lastName": "Doe'OR'1'='1"
+    },
+    "emptyFields": {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": ""
+    }
+  },
+  "login": {
+    "validUser": {
+      "email": "testuser@example.com",
+      "password": "Test@123456"
+    },
+    "invalidCredentials": {
+      "wrongPassword": "WrongPassword123",
+      "nonExistentEmail": "nonexistent@test.com",
+      "sqlInjection": "' OR '1'='1",
+      "xssAttempt": "<script>alert('XSS')</script>@test.com"
+    },
+    "invalidEmails": {
+      "missingAt": "testuser.com",
+      "withSpecialChars": "test@<script>.com"
+    }
+  },
+  "urls": {
+    "base": "https://demowebshop.tricentis.com",
+    "register": "https://demowebshop.tricentis.com/register",
+    "login": "https://demowebshop.tricentis.com/login"
+  }
+}
